@@ -54,6 +54,7 @@ Vulnerability #2: Insecure Direct Object Reference (IDOR)
 
 Click on "Find a Salesperson" and take note of everyone publically on the page. Click on anyone to see details of that person. Change the id in the URL to "10," and you will find the account of someone that shouldn't be public yet! You can go back to the "Find a Salesperson" page and CTRL+F to find that this user actually isn't listed yet.
 
+<img src='idor_.gif' title='idor' width='' />
 
 ## Notes
 
