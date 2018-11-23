@@ -30,10 +30,17 @@ Log into your account and add ```/hacktools/change_session_id.php``` to the end 
 
 ## Green
 
-Vulnerability #1: __________________
+Vulnerability #1: Cross-Site Scripting (XSS)
 
-Vulnerability #2: __________________
+Press the "Contact" button and start filling out the information. In the Feedback area, type ```<script>alert('Luis found the XSS!');</script>```. Now login and view the "Feedback." An alert will come up on the screen with what you entered before.
 
+<img src='crosssitescripting.gif' title='xss' width='' />
+
+Vulnerability #2: Username Enumeration
+
+When attempting to login as someone who exists in the system like "jmonroe99," the "Log in was unsuccessful" text will be bold. Now when trying to login as someone who doesn't exist, the "Log in was unsuccessful" text will not be bold. This reveals who has an actual account on the website.
+
+<img src='userenumeration.gif' title='ue' width='' />
 
 ## Red
 
