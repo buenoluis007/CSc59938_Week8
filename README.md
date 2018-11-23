@@ -44,9 +44,15 @@ When attempting to login as someone who exists in the system like "jmonroe99," t
 
 ## Red
 
-Vulnerability #1: __________________
+Vulnerability #1: Cross-Site Request Forgery (CSRF)
 
-Vulnerability #2: __________________
+Download the "csrf.html" file provided on this github and access the Users page when logged in. Take note of who exists in the system. When you open the "csrf.html" file on your computer, it will open a new empty tab. Now refresh the Users page, and the first User (with id=1) has been changed! Tricking someone into to opening this html file is all you need to do to pull off this exploit.
+
+<img src='csrf.gif' title='csrf' width='' />
+
+Vulnerability #2: Insecure Direct Object Reference (IDOR)
+
+Click on "Find a Salesperson" and take note of everyone publically on the page. Click on anyone to see details of that person. Change the id in the URL to "10," and you will find the account of someone that shouldn't be public yet! You can go back to the "Find a Salesperson" page and CTRL+F to find that this user actually isn't listed yet.
 
 
 ## Notes
