@@ -1,6 +1,6 @@
 # Project 8 - Pentesting Live Targets
 
-Time spent: **X** hours spent in total
+Time spent: **7** hours spent in total
 
 > Objective: Identify vulnerabilities in three different versions of the Globitek website: blue, green, and red.
 
@@ -32,7 +32,7 @@ Log into your account and add ```/hacktools/change_session_id.php``` to the end 
 
 Vulnerability #1: Cross-Site Scripting (XSS)
 
-Press the "Contact" button and start filling out the information. In the Feedback area, type ```<script>alert('Luis found the XSS!');</script>```. Now login and view the "Feedback." An alert will come up on the screen with what you entered before.
+Press the "Contact" button and start filling out the information. In the Feedback area, type ```<script>alert('Luis found the XSS!');</script>```. Now login and view the "Feedback." An alert will come up on the screen with what you entered before. Blue and Red display the XSS as text instead.
 
 <img src='crosssitescripting.gif' title='xss' width='' />
 
@@ -52,9 +52,15 @@ Download the "csrf.html" file provided on this github and access the Users page 
 
 Vulnerability #2: Insecure Direct Object Reference (IDOR)
 
-Click on "Find a Salesperson" and take note of everyone publically on the page. Click on anyone to see details of that person. Change the id in the URL to "10," and you will find the account of someone that shouldn't be public yet! You can go back to the "Find a Salesperson" page and CTRL+F to find that this user actually isn't listed yet.
+Click on "Find a Salesperson" and take note of everyone publically on the page. Click on anyone to see details of that person. Change the id in the URL to "10," and you will find the account of someone that shouldn't be public yet! You can go back to the "Find a Salesperson" page and CTRL+F to find that this user actually isn't listed yet. Blue and Green simply redirect you back to the "Find a Salesperson" page when you perform this there.
 
 <img src='idor_.gif' title='idor' width='' />
+
+## Bonus Objective 2: Build on Objective #4 (Cross-Site Scripting)
+
+Like before, press the "Contact" button and start filling out the information. In the Feedback area, type ```<script>document.location="https://www.google.com/"</script>```. This time we are redirecting to user to the website of our choosing (in this case, google). Now login and view the "Feedback." All alerts from previous users will display, and then you will be rerouted to the website of choice. This can easily be used to reroute someone to a malicious website, thus making this very unsecure.
+
+<img src='crosssitescripting2.gif' title='xss2' width='' />
 
 ## Notes
 
